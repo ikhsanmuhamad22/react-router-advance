@@ -22,7 +22,7 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import EventPage from './pages/EventsPage';
+import EventPage, { loader as eventLoader } from './pages/EventsPage';
 import EventDetailPage from './pages/EventDetailPage';
 import NewEventPage from './pages/NewEventPage';
 import EditEventPage from './pages/EditEventPage';
@@ -43,6 +43,7 @@ function App() {
             {
               index: true,
               element: <EventPage />,
+              loader: eventLoader,
             },
             {
               path: ':id',
