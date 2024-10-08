@@ -1,5 +1,5 @@
 import EventsList from '../components/EventsList';
-import { useLoaderData } from 'react-router-dom';
+import { json, useLoaderData } from 'react-router-dom';
 
 export default function EventPage() {
   const data = useLoaderData();
@@ -20,10 +20,11 @@ export async function loader() {
 
   if (!response.ok) {
     // return { isError: true, message: 'an error occured!' }; this is alternatif handling err but recommended handling bellow
-    throw new Response(
-      JSON.stringify({ message: 'could not fetch the data.' }),
-      { status: 500 }
-    );
+    // throw new Response(
+    //   JSON.stringify({ message: 'could not fetch the data.' }),
+    //   { status: 500 }
+    // );
+    throw json({ message: 'could not fetch the data.' }, { status: 500 });
   } else {
     return response;
   }
