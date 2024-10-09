@@ -25,8 +25,9 @@ import HomePage from './pages/HomePage';
 import EventPage, { loader as eventLoader } from './pages/EventsPage';
 import EventDetailPage, {
   loader as eventDetailLoader,
+  action as deleteEventAction,
 } from './pages/EventDetailPage';
-import NewEventPage from './pages/NewEventPage';
+import NewEventPage, { action as newEventAction } from './pages/NewEventPage';
 import EditEventPage from './pages/EditEventPage';
 import RootLayout from './pages/RootLayout';
 import RootEventsLayout from './pages/RootEventsLayout';
@@ -57,6 +58,7 @@ function App() {
                 {
                   index: true,
                   element: <EventDetailPage />,
+                  action: deleteEventAction,
                 },
                 {
                   path: 'edit',
@@ -67,6 +69,7 @@ function App() {
             {
               path: 'new',
               element: <NewEventPage />,
+              action: newEventAction,
             },
           ],
         },
